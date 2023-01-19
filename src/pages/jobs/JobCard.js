@@ -2,25 +2,33 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import Box from "@mui/material/Box";
-import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
-
 import ChipsArray from "components/ChipsArray";
 import LeftSpeedDial from "pages/components-overview/SpeedDial";
+
+import Texture from "assets/background/large-triangles.svg";
+
+//db
+import { collection, query, limit, where } from 'firebase/firestore'
+import { db } from '../../Firebase'
+
+//query
+// const ref = query(
+//     collection(db, 'users'),
+//     limit(10),
+//     where()
+// )
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -40,8 +48,6 @@ export default function JobCard() {
     setExpanded(!expanded);
   };
 
-  const dummyInfo = <lorem-ipsum className="line"></lorem-ipsum>;
-
   return (
     <Card
       sx={{
@@ -49,7 +55,11 @@ export default function JobCard() {
         flexDirection: "column",
         boxShadow: 5,
         borderRadius: 5,
-        width: '100%'
+        width: "100%",
+      }}
+      style={{
+        backgroundImage: `url(${Texture})`,
+        backgroundOpacity: "0.3",
       }}
     >
       <Box

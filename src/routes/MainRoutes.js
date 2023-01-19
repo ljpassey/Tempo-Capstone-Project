@@ -32,6 +32,11 @@ const MainRoutes = {
         {
           path: "jobs",
           element: <Jobs />,
+          children: [
+            {
+                
+            }
+          ]
         },
         {
           path: "create-job",

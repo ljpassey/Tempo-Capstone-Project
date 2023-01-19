@@ -26,7 +26,7 @@ const MainCard = forwardRef(
   (
     {
       border = true,
-    //   boxShadow,
+      boxShadow,
       children,
       content = true,
       contentSX = {},
@@ -34,7 +34,7 @@ const MainCard = forwardRef(
       divider = true,
       elevation,
       secondary,
-    //   shadow,
+      shadow,
       sx = {},
       title,
       codeHighlight,

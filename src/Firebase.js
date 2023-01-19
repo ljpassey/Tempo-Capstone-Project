@@ -1,5 +1,10 @@
 import firebase, { initializeApp } from "firebase/app";
-import { getAuth, signOut, setPersistence, browserSessionPersistence } from "firebase/auth";
+import {
+  getAuth,
+  signOut,
+  setPersistence,
+  browserSessionPersistence,
+} from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const config = {
@@ -32,6 +37,6 @@ setPersistence(auth, browserSessionPersistence)
 
 export const logout = signOut(auth);
 
- export const db = getFirestore(app)
+export const db = getFirestore(app);
 
 export default getFirestore(app);

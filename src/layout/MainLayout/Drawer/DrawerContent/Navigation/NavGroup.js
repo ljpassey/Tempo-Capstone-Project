@@ -21,7 +21,11 @@ const NavGroup = ({ item }) => {
             key={menuItem.id}
             item={menuItem}
             level={1}
-            sx={{ height: "100%", display: 'flex', justifyContent: "space-between" }}
+            sx={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
           />
         );
       default:
@@ -69,7 +73,6 @@ const NavGroup = ({ item }) => {
     >
       <Divider variant="middle" />
       {navCollapse}
-      {/* <Divider variant="middle" /> */}
     </List>
   );
 };

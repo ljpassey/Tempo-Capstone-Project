@@ -11,16 +11,7 @@ const ProfileCard = () => {
         p: 1,
       }}
     >
-      <Typography
-        // sx={{
-        //   display: "flex",
-        //   alignItems: "center",
-        //   justifyContent: "space-between",
-        //   p: 1,
-        // }}
-      >
-        TEST
-      </Typography>
+      <Typography>TEST</Typography>
     </Card>
   );
 };

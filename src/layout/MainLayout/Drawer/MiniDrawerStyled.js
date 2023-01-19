@@ -27,14 +27,14 @@ const closedMixin = (theme) => ({
         width: `calc(${theme.spacing(8)} + 1px)`
     },
     borderRight: 'none',
-    boxShadow: theme.customShadows
+    boxShadow: theme.customShadows.z1
 });
 
 // ==============================|| DRAWER - MINI STYLED ||============================== //
 
 const MiniDrawerStyled = styled(Drawer, { shouldForwardProp: (prop) => prop !== 'open' })(({ theme, open }) => ({
     width: drawerWidth,
-    flexShrink: 0,
+    flexShrink: 10,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
     ...(open && {

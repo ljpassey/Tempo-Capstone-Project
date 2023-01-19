@@ -11,7 +11,6 @@ import MultipleSelectChip from "./MultipleSelectChip";
 const Jobs = () => {
   const navigate = useNavigate();
   const { currentUser, loading } = useContext(AuthContext);
-  const currentUserEmail = currentUser ? currentUser.email : "";
 
   useEffect(() => {
     let authToken = sessionStorage.getItem("Auth Token");
@@ -25,7 +24,7 @@ const Jobs = () => {
   }, []);
 
   return (
-    <Grid container>
+    <Grid>
       <Stack
         direction="column"
         justifyContent="stretch"
@@ -39,16 +38,11 @@ const Jobs = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h5" component="span">
+          <Typography variant="h4" component="span">
             Available Jobs
           </Typography>
-          <Box>
-            <MultipleSelectChip />
-          </Box>
         </Box>
-        <Grid item xs={20} md={12}>
-          <JobCard />
-        </Grid>
+
         <JobCard />
         <JobCard />
         <JobCard />

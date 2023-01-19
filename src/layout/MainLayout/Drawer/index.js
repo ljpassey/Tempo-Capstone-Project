@@ -35,7 +35,7 @@ const MainDrawer = ({ open, handleDrawerToggle, window }) => {
         <MiniDrawerStyled
           variant="permanent"
           open={open}
-          sx={{ display: "flex", justifyContent: "space-between" }}
+          sx={{ display: "flex", justifyContent: "space-evenly" }}
         >
           {drawerHeader}
           {drawerContent}
@@ -49,9 +49,9 @@ const MainDrawer = ({ open, handleDrawerToggle, window }) => {
           ModalProps={{ keepMounted: true }}
           sx={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
             "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
+              boxSizing: "content-box",
               width: drawerWidth,
               borderRight: `1px solid ${theme.palette.divider}`,
               backgroundImage: "none",

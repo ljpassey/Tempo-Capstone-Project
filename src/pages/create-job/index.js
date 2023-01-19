@@ -29,7 +29,6 @@ const CreateJob = () => {
     <Grid>
       <Stack spacing={2}>
         <Typography variant="h4">Create a New Job</Typography>
-        <HorizontalLinearStepper />
         <Card
           sx={{
             width: "100%",
@@ -37,7 +36,6 @@ const CreateJob = () => {
           }}
         >
           <CreateJobForm />
-          <Fab />
         </Card>
       </Stack>
     </Grid>
