@@ -54,7 +54,7 @@ const CreateJobForm = () => {
   const ref = collection(db, "jobs");
   const mutation = useFirestoreCollectionMutation(ref);
   const uID = sessionStorage.getItem("uID Token");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -103,6 +103,7 @@ const CreateJobForm = () => {
         onSubmit={async (values, {}) => {
           console.log(values);
           mutation.mutate({
+            id: Math.random(),
             jobTitle: values.jobTitle,
             jobDate: values.jobDate,
             jobTime: values.jobTime,
@@ -117,7 +118,7 @@ const CreateJobForm = () => {
             createdBy: uID,
           });
 
-          navigate("/dashboard/jobs")
+          navigate("/dashboard/jobs");
         }}
       >
         {({
@@ -130,12 +131,10 @@ const CreateJobForm = () => {
           values,
         }) => (
           <form noValidate onSubmit={handleSubmit}>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="jobTitle-creation">
-                    Job Title*
-                  </InputLabel>
+                  <InputLabel htmlFor="jobTitle-creation">Job Title</InputLabel>
                   <OutlinedInput
                     id="jobTitle"
                     type="jobTitle"
@@ -155,7 +154,7 @@ const CreateJobForm = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="jobDate-creation">Job Date*</InputLabel>
+                  <InputLabel htmlFor="jobDate-creation">Job Date</InputLabel>
                   <OutlinedInput
                     id="jobDate"
                     type="jobDate"
@@ -175,7 +174,7 @@ const CreateJobForm = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="jobTime-creation">Job Time*</InputLabel>
+                  <InputLabel htmlFor="jobTime-creation">Job Time</InputLabel>
                   <OutlinedInput
                     id="jobTime"
                     type="jobTime"
@@ -195,7 +194,7 @@ const CreateJobForm = () => {
               </Grid>
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="jobType-creation">Job Type*</InputLabel>
+                  <InputLabel htmlFor="jobType-creation">Job Type</InputLabel>
                   <OutlinedInput
                     id="jobType"
                     type="jobType"
@@ -213,10 +212,11 @@ const CreateJobForm = () => {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Divider />
+              <Grid item xs={12}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="officeName-creation">
-                    Office Name*
+                    Office Name
                   </InputLabel>
                   <OutlinedInput
                     id="officeName"
@@ -238,7 +238,7 @@ const CreateJobForm = () => {
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="officeAddress-creation">
-                    Office Address*
+                    Office Address
                   </InputLabel>
                   <OutlinedInput
                     id="officeAddress"
@@ -262,9 +262,9 @@ const CreateJobForm = () => {
                   )}
                 </Stack>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12}>
                 <Stack spacing={1}>
-                  <InputLabel htmlFor="payRate-creation">Pay Rate*</InputLabel>
+                  <InputLabel htmlFor="payRate-creation">Pay Rate</InputLabel>
                   <OutlinedInput
                     id="payRate"
                     type="payRate"
@@ -285,7 +285,7 @@ const CreateJobForm = () => {
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="contactName-creation">
-                    Contact Name*
+                    Contact Name
                   </InputLabel>
                   <OutlinedInput
                     id="contactName"
@@ -307,7 +307,7 @@ const CreateJobForm = () => {
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="contactNumber-creation">
-                    Contact Number*
+                    Contact Number
                   </InputLabel>
                   <OutlinedInput
                     id="contactNumber"
@@ -334,7 +334,7 @@ const CreateJobForm = () => {
               <Grid item xs={12} md={6}>
                 <Stack spacing={1}>
                   <InputLabel htmlFor="contactEmail-creation">
-                    Contact Email*
+                    Contact Email
                   </InputLabel>
                   <OutlinedInput
                     id="contactEmail"

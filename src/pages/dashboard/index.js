@@ -4,29 +4,26 @@ import { AuthContext } from "pages/authentication/auth-forms/Auth";
 
 // material-ui
 import {
-  Avatar,
-  AvatarGroup,
   Box,
   Button,
   Grid,
-  List,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemSecondaryAction,
-  ListItemText,
-  MenuItem,
-  Stack,
-  TextField,
-  Paper,
   Card,
   Typography,
   Fab,
+  Stack,
+  CardMedia,
+  Divider,
+  IconButton,
+  Link,
 } from "@mui/material";
 
 // project import
+import AllJobs from "./queries";
+import CreatedJobs from "./createdJobsQuery";
 
 // assets
 import { PlusCircleOutlined } from "@ant-design/icons";
+import Favorite from "@mui/icons-material/Favorite";
 
 // action style
 const actionSX = {
@@ -43,7 +40,6 @@ const actionSX = {
 const DashboardDefault = () => {
   const navigate = useNavigate();
   const { currentUser, loading } = useContext(AuthContext);
-  const currentUserEmail = currentUser ? currentUser.email : "";
 
   useEffect(() => {
     let authToken = sessionStorage.getItem("Auth Token");
@@ -57,22 +53,30 @@ const DashboardDefault = () => {
   }, []);
 
   return (
-    <Grid container rowSpacing={4} columnSpacing={2}>
-      <Grid item xs={12} sx={{ mb: -2.25 }}>
-        <Typography variant="h4">Dashboard</Typography>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={6}
-        sx={{ display: "flex", justifyContent: "stretch" }}
+    <Grid xs={12} md={6}>
+      <Typography variant="h4">Dashboard</Typography>
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          height: "100%",
+          py: 1,
+        }}
       >
-        <Card sx={{ width: "100%" }}>
+        <Card
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            py: 2,
+          }}
+        >
           <Fab
             variant="extended"
             color="primary"
             aria-label="add"
-            sx={{ display: "flex" }}
+            sx={{ display: "flex", borderRadius: 3 }}
           >
             <PlusCircleOutlined style={{ fontSize: "25px", m: 3 }} />
             <Typography style={{ fontSize: "25px" }} m={3}>
@@ -80,28 +84,24 @@ const DashboardDefault = () => {
             </Typography>
           </Fab>
         </Card>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={6}
-        sx={{ display: "flex", justifyContent: "stretch" }}
-      >
-        <Card sx={{ width: "100%" }}>
-          <Fab
-            variant="extended"
-            color="primary"
-            aria-label="add"
-            sx={{ display: "flex" }}
-          >
-            <PlusCircleOutlined style={{ fontSize: "25px", m: 3 }} />
-            <Typography style={{ fontSize: "25px" }} m={3}>
-              Add Job Preferences
-            </Typography>
-          </Fab>
+        <Card
+          sx={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            bgcolor: "black",
+            color: "white",
+            alignItems: "center",
+            borderRadius: 3,
+            m: 2,
+            pt: 2,
+          }}
+        >
+          <Typography variant="h3">Your Past Created Jobs</Typography>
+          <CreatedJobs />
         </Card>
-      </Grid>
-      <Box sx={{ height: "90vh" }} />
+      </Box>
     </Grid>
   );
 };

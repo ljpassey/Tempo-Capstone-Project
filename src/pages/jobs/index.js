@@ -7,6 +7,7 @@ import { AuthContext } from "pages/authentication/auth-forms/Auth";
 import { Stack, Typography, Button, Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import MultipleSelectChip from "./MultipleSelectChip";
+import AllJobs from "pages/dashboard/queries";
 
 const Jobs = () => {
   const navigate = useNavigate();
@@ -42,17 +43,7 @@ const Jobs = () => {
             Available Jobs
           </Typography>
         </Box>
-
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
-        <JobCard />
+        <AllJobs />
       </Stack>
     </Grid>
   );

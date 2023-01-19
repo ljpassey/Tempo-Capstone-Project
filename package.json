@@ -15,6 +15,7 @@
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui-treasury/components": "^1.10.1",
     "@mui/icons-material": "^5.11.0",
+    "@mui/joy": "^5.0.0-alpha.63",
     "@mui/lab": "^5.0.0-alpha.100",
     "@mui/material": "^5.10.6",
     "@mui/styles": "^5.10.6",
