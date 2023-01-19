@@ -28,6 +28,7 @@ const CreateJob = () => {
           sx={{
             width: "100%",
             p: 2,
+            borderRadius: 3
           }}
         >
           <CreateJobForm />

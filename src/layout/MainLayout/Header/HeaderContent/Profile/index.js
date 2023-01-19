@@ -71,6 +71,7 @@ function a11yProps(index) {
 
 const Profile = () => {
   const [name, setName] = useState();
+  const [lastName, setLastName] = useState();
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(0);
 
@@ -98,32 +99,32 @@ const Profile = () => {
     setOpen(false);
   };
 
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   const profClickHandler = () => {
-    navigate("/profile")
-  }
+    navigate("/profile");
+  };
 
   const iconBackColorOpen = "grey.300";
 
   //-------------DB Query---------------//
-   async function getUser() {
-     const userRef = doc(db, "users", `${uID}`);
-     const userSnap = await getDoc(userRef);
+  async function getUser() {
+    const userRef = doc(db, "users", `${uID}`);
+    const userSnap = await getDoc(userRef);
 
-     if (userSnap.exists()) {
-       setName(userSnap.data().firstName);
-       return;
-     } else {
-       console.log("No user found");
-     }
-     return name;
-   }
+    if (userSnap.exists()) {
+      setName(userSnap.data().firstName);
+      setLastName(userSnap.data().lastName)
+      return;
+    } else {
+      console.log("No user found");
+    }
+    return name;
+  }
 
-   getUser()
+  getUser();
 
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
@@ -146,7 +147,7 @@ const Profile = () => {
             src={avatar3}
             sx={{ width: 32, height: 32 }}
           />
-          <Typography variant="subtitle1">{`${name}`}</Typography>
+          <Typography variant="subtitle1">{`${name} ${lastName}`}</Typography>
         </Stack>
       </ButtonBase>
       <Popper
@@ -246,7 +247,6 @@ const Profile = () => {
                               }
                               label="Profile"
                               {...a11yProps(0)}
-                          
                             />
                             <Tab
                               sx={{

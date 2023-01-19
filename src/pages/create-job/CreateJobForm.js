@@ -60,9 +60,10 @@ const CreateJobForm = () => {
     <Box
       sx={{
         display: "column",
-        height: "100%",
+        // height: "100%",
         justifyContent: "space-evenly",
         width: "100%",
+        borderRadius: 3
       }}
     >
       <Formik

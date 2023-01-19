@@ -16,6 +16,7 @@ import {
 import Grid from "@mui/material/Unstable_Grid2";
 import ProfileCard from "./ProfileCard";
 import ProfilePreferences from "./ProfilePreferences";
+import MultipleSelectChip from "pages/jobs/MultipleSelectChip";
 
 import Theme from "themes/theme/index";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -26,6 +27,10 @@ import db from "../../Firebase";
 
 import BackgroundTexture from "assets/background/protruding-squares.svg";
 import Texture2 from "assets/background/large-triangles.svg";
+import Texture from "assets/background/large-triangles.svg";
+
+import UserData from "./queries";
+import CreatedJobs from "pages/dashboard/createdJobsQuery";
 
 const Profile = () => {
   const uID = sessionStorage.getItem("uID Token");
@@ -99,7 +104,6 @@ const Profile = () => {
             </Paper>
 
             <Box sx={{ px: 2 }}>
-              {/* <Typography variant="h5">Edit Your Profile</Typography> */}
               <Typography variant="h4">
                 Finish setting up your profile to get the most out of Tempo!
               </Typography>
@@ -118,16 +122,17 @@ const Profile = () => {
             />
           </Box>
         </Stack>
-        <Stack
-          spacing={2}
-          my={2}
-          direction="row"
+        <Box
+          sx={{ my: 2, flexDirection: "row", width: "100%", display: "flex" }}
           divider={<Divider orientation="vertical" flexItem />}
         >
-          <Card sx={{ width: "auto", p: 2 }}>
+          <Card sx={{ width: "100%", p: 2, borderRadius: 3 }}>
             <Card
               sx={{
-                width: "auto",
+                display: "flex",
+                justifyContent: "space-around",
+                width: "100%",
+                height: "auto",
                 borderRadius: 2,
                 bgcolor: "black",
                 color: "white",
@@ -135,20 +140,36 @@ const Profile = () => {
               }}
               variant="outlined"
             >
-              <Typography variant="h5" m={1}>{`Welcome ${name}!`}</Typography>
+              <Typography
+                // width="100%"
+                variant="h5"
+                m={1}
+              >{`Welcome ${name}! `}</Typography>
+              <Typography
+                // width="100%"
+                variant="h5"
+                m={1}
+              >{`View Any Created Jobs Below`}</Typography>
             </Card>
-            <ProfilePreferences />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                width: "100%",
+                height: "auto",
+
+                textAlign: "center",
+                my: 2,
+              }}
+              variant="outlined"
+            >
+              <CreatedJobs />
+            </Box>
           </Card>
-          <Card sx={{ width: "100%", height: "80vh" }}>
-            <Typography sx={{ height: "50%" }}>Text</Typography>
-            <Divider variant="middle" />
-            <Typography sx={{ height: "30%" }}>Test2</Typography>
-            <Divider variant="middle" />
-            <Typography sx={{ height: "20%" }}>Test3</Typography>
-            <Divider variant="middle" />
-            <Typography sx={{ height: "40%" }}>Test4</Typography>
-          </Card>
-        </Stack>
+
+          <UserData />
+        </Box>
       </Grid>
     </Grid>
   );

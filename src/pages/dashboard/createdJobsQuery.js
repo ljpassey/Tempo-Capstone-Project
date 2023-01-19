@@ -62,8 +62,8 @@ export default function CreatedJobs() {
             boxShadow: 5,
             borderRadius: 3,
             p: 2,
-            m: 2,
-            width: "95%",
+            mt: 2,
+            width: "100%",
           }}
           style={{
             backgroundImage: `url(${Texture})`,

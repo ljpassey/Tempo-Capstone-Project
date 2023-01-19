@@ -66,7 +66,8 @@ export default function AllJobs() {
           boxShadow: 5,
           borderRadius: 5,
           p: 2,
-          m: 1,
+          m: 4,
+          width: "100%",
         }}
         style={{
           backgroundImage: `url(${Texture})`,
@@ -102,7 +103,7 @@ export default function AllJobs() {
               p: 2,
               my: 2,
               mr: 1,
-              borderRadius: 2,
+              borderRadius: 3,
             }}
           >
             <Typography>Job Date: {data.jobDate}</Typography>
@@ -115,7 +116,7 @@ export default function AllJobs() {
               width: "100%",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "stretch",
+              justifyContent: "center",
               p: 2,
               my: 2,
               ml: 1,
@@ -126,27 +127,26 @@ export default function AllJobs() {
             <Typography>Office Address: {data.officeAddress}</Typography>
           </Card>
         </Box>
-        <Divider />
 
         <Box
-          sx={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-          }}
+        //   sx={{
+        //     width: "100%",
+        //     display: "flex",
+        //     flexDirection: "row",
+        //     justifyContent: "space-between",
+        //     alignItems: "center",
+        //   }}
         >
           <Card
             sx={{
               color: "white",
               bgcolor: "black",
               borderRadius: 3,
-              p: 2,
+              p: 1,
 
               display: "flex",
               flexDirection: "row",
-              justifyContent: "stretch",
+              justifyContent: "space-between",
               alignItems: "center",
               width: "100%",
             }}
@@ -154,31 +154,35 @@ export default function AllJobs() {
           >
             <Box
               sx={{
-                p: 2,
+                // mx: 2,
               }}
             >
               <Fab
-                variant="extended"
+                color="primary"
                 sx={{
-                  p: 2,
+                  p: 1,
+                  mr: 1,
                   fontSize: 20,
-                  borderRadius: 2,
+                  borderRadius: 3,
                   width: "auto",
-                  bgcolor: "white",
+                  bgcolor: "primary",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
                   height: "auto",
                 }}
               >
                 Show Interest
                 <SendAndArchiveOutlinedIcon
                   sx={{
-                    justifyContent: "stretch",
+                    // justifyContent: "stretch",
                     display: "flex",
                     ml: 5,
                   }}
                 />
               </Fab>
             </Box>
-            <Box sx={{ width: "auto" }}>
+            <Box sx={{ width: "100%" }}>
               <Typography>Contact Name: {data.contactName}</Typography>
               <Typography>Contact Number: {data.contactNumber}</Typography>
               <Typography>Contact Email: {data.contactEmail}</Typography>

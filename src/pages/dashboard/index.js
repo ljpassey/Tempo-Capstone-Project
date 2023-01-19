@@ -20,6 +20,9 @@ import {
 // project import
 import AllJobs from "./queries";
 import CreatedJobs from "./createdJobsQuery";
+import Profile from "pages/profile/index";
+import Jobs from "pages/jobs/index";
+import CreateJob from "pages/create-job/index";
 
 // assets
 import { PlusCircleOutlined } from "@ant-design/icons";
@@ -60,46 +63,42 @@ const DashboardDefault = () => {
           width: "100%",
           display: "flex",
           justifyContent: "space-between",
-          height: "100%",
-          py: 1,
+          height: "auto",
+        //   m: 1,
         }}
       >
         <Card
           sx={{
             width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            py: 2,
+
+            bgcolor: "black",
+            color: "white",
+
+            borderRadius: 3,
+            my: 2,
+            p: 2,
           }}
         >
-          <Fab
-            variant="extended"
-            color="primary"
-            aria-label="add"
-            sx={{ display: "flex", borderRadius: 3 }}
-          >
-            <PlusCircleOutlined style={{ fontSize: "25px", m: 3 }} />
-            <Typography style={{ fontSize: "25px" }} m={3}>
-              Add Job Preferences
-            </Typography>
-          </Fab>
+          <Jobs />
         </Card>
         <Card
           sx={{
             width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+
+            height: "100%",
             bgcolor: "black",
             color: "white",
-            alignItems: "center",
+
             borderRadius: 3,
             m: 2,
-            pt: 2,
+            p: 2,
           }}
         >
-          <Typography variant="h3">Your Past Created Jobs</Typography>
-          <CreatedJobs />
+          <CreateJob />
+          <Typography variant="h4" mt={4}>
+            Your Past Created Jobs
+          </Typography>
+          <CreatedJobs height="auto" />
         </Card>
       </Box>
     </Grid>
