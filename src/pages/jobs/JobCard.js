@@ -15,7 +15,7 @@ import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import ChipsArray from "components/ChipsArray";
-import LeftSpeedDial from "pages/components-overview/SpeedDial";
+import LeftSpeedDial from "components/SpeedDial";
 
 import Texture from "assets/background/large-triangles.svg";
 

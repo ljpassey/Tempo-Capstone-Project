@@ -17,12 +17,16 @@ import {
   Link,
 } from "@mui/material";
 
+import { styled } from "@mui/material/styles";
+import Grid2 from "@mui/material/Unstable_Grid2";
+
 // project import
 import AllJobs from "./queries";
 import CreatedJobs from "./createdJobsQuery";
 import Profile from "pages/profile/index";
 import Jobs from "pages/jobs/index";
 import CreateJob from "pages/create-job/index";
+import YourJobs from "./yourJobs";
 
 // assets
 import { PlusCircleOutlined } from "@ant-design/icons";
@@ -38,6 +42,18 @@ const actionSX = {
   transform: "none",
 };
 
+const Item = styled(Card)(({}) => ({
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
+  height: "100%",
+  backgroundColor: "black",
+  color: "white",
+  borderRadius: "20px",
+  padding: 10,
+  marginRight: 10,
+}));
+
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
 const DashboardDefault = () => {
@@ -49,59 +65,41 @@ const DashboardDefault = () => {
     let uID = sessionStorage.getItem("uID Token");
 
     if (authToken) {
-      navigate("/dashboard/default");
+      navigate("/dashboard");
     } else if (!authToken) {
       navigate("/login");
     }
   }, []);
 
   return (
-    <Grid xs={12} md={6}>
+    <>
       <Typography variant="h4">Dashboard</Typography>
-      <Box
+      {/* <Box
+        container
+        xs={12}
+        sm={12}
+        md={8}
+        lg={6}
+        xl={4}
         sx={{
-          width: "100%",
+          m: 2,
+          py: 2,
           display: "flex",
-          justifyContent: "space-between",
-          height: "auto",
-        //   m: 1,
+          flexDirection: "row",
+          justifyContent: "flex-start",
         }}
       >
-        <Card
-          sx={{
-            width: "100%",
-
-            bgcolor: "black",
-            color: "white",
-
-            borderRadius: 3,
-            my: 2,
-            p: 2,
-          }}
-        >
+        <Item>
           <Jobs />
-        </Card>
-        <Card
-          sx={{
-            width: "100%",
-
-            height: "100%",
-            bgcolor: "black",
-            color: "white",
-
-            borderRadius: 3,
-            m: 2,
-            p: 2,
-          }}
-        >
+        </Item>
+        <Item>
           <CreateJob />
-          <Typography variant="h4" mt={4}>
-            Your Past Created Jobs
-          </Typography>
-          <CreatedJobs height="auto" />
-        </Card>
-      </Box>
-    </Grid>
+        </Item>
+        <Item>
+          <YourJobs />
+        </Item> */}
+      {/* </Box> */}
+    </>
   );
 };
 

@@ -31,9 +31,9 @@ import { db } from "../../Firebase";
 import Texture from "assets/background/large-triangles.svg";
 
 const uID = sessionStorage.getItem("uID Token");
-const num = 59;
 
 export default function CreatedJobs() {
+  console.log(`uID is ${uID}`);
   const navigate = useNavigate();
   const query = useFirestoreQuery("jobs", collection(db, "jobs"), {
     subscribe: true,
@@ -51,7 +51,9 @@ export default function CreatedJobs() {
 
   return snapshot.docs.map((docSnapshot) => {
     const data = docSnapshot.data();
-    console.log(data);
+    const num = Math.floor(Math.random() * 100);
+    const num2 = Math.floor(Math.random() * 10);
+    console.log(num);
     if (`${data.createdBy}` === `${uID}`) {
       return (
         <Card
@@ -62,7 +64,7 @@ export default function CreatedJobs() {
             boxShadow: 5,
             borderRadius: 3,
             p: 2,
-            mt: 2,
+            // mt: 2,
             width: "100%",
           }}
           style={{
@@ -70,20 +72,26 @@ export default function CreatedJobs() {
             backgroundOpacity: "0.3",
           }}
         >
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
             <Typography variant="h1" my={1}>
               {data.jobTitle}
             </Typography>
-            <IconButton>
+            {/* <IconButton>
               <FavoriteBorderIcon />
-            </IconButton>
+            </IconButton> */}
           </Box>
           <Divider />
           <Box
             sx={{
               display: "flex",
-              direction: "row",
-              justifyContent: "space-between",
+              direction: "column",
+              justifyContent: "center",
               width: "100%",
             }}
           >
@@ -133,7 +141,12 @@ export default function CreatedJobs() {
               alignItems: "center",
             }}
           >
-            <Typography>Number of likes: {`${num}`}</Typography>
+            <Typography mt={2} variant="h5">
+              {num} Likes
+            </Typography>
+            <Typography mt={2} variant="h5">
+              {num2} People Interested
+            </Typography>
           </Box>
         </Card>
       );

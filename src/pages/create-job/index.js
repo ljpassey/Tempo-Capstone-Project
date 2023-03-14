@@ -5,6 +5,7 @@ import { useNavigate } from "../../../node_modules/react-router-dom/dist/index";
 import { Stack, Typography, Card, Fab } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import CreateJobForm from "./CreateJobForm";
+import Texture from "assets/background/large-triangles.svg";
 
 const CreateJob = () => {
   const navigate = useNavigate();
@@ -27,8 +28,11 @@ const CreateJob = () => {
         <Card
           sx={{
             width: "100%",
+            height: "90vh",
             p: 2,
-            borderRadius: 3
+            borderRadius: 3,
+            backgroundImage: `url(${Texture})`,
+            backgroundOpacity: "0.3",
           }}
         >
           <CreateJobForm />

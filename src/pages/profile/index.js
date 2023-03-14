@@ -31,6 +31,7 @@ import Texture from "assets/background/large-triangles.svg";
 
 import UserData from "./queries";
 import CreatedJobs from "pages/dashboard/createdJobsQuery";
+import YourJobs from "pages/dashboard/yourJobs";
 
 const Profile = () => {
   const uID = sessionStorage.getItem("uID Token");
@@ -164,7 +165,7 @@ const Profile = () => {
               }}
               variant="outlined"
             >
-              <CreatedJobs />
+              <YourJobs />
             </Box>
           </Card>
 

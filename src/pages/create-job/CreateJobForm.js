@@ -22,6 +22,7 @@ import {
   FormControlLabel,
   Select,
   MenuItem,
+  Alert,
 } from "@mui/material";
 
 //Third Party
@@ -52,9 +53,9 @@ import { useFirestoreCollectionMutation } from "@react-query-firebase/firestore"
 
 const CreateJobForm = () => {
   const ref = collection(db, "jobs");
-  const mutation = useFirestoreCollectionMutation(ref);
   const uID = sessionStorage.getItem("uID Token");
   const navigate = useNavigate();
+  const mutation = useFirestoreCollectionMutation(ref);
 
   return (
     <Box
@@ -63,7 +64,7 @@ const CreateJobForm = () => {
         // height: "100%",
         justifyContent: "space-evenly",
         width: "100%",
-        borderRadius: 3
+        borderRadius: 3,
       }}
     >
       <Formik
@@ -118,8 +119,7 @@ const CreateJobForm = () => {
             createdAt: serverTimestamp(),
             createdBy: uID,
           });
-
-          navigate("/dashboard/jobs");
+          navigate(`/jobs`);
         }}
       >
         {({

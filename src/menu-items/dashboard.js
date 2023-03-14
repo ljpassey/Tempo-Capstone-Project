@@ -10,6 +10,8 @@ import {
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
+import CalendarMonthOutlinedIcon from "@mui/icons-material/CalendarMonthOutlined";
+import ViewKanbanOutlinedIcon from "@mui/icons-material/ViewKanbanOutlined";
 
 // icons
 const icons = {
@@ -19,6 +21,8 @@ const icons = {
   ProfileOutlined,
   AccountCircleOutlinedIcon,
   UserOutlined,
+  CalendarMonthOutlinedIcon,
+  ViewKanbanOutlinedIcon
 };
 
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //
@@ -34,6 +38,22 @@ const dashboard = {
       type: "item",
       url: "/dashboard/default",
       icon: icons.HomeOutlined,
+      breadcrumbs: false,
+    },
+    {
+      id: "calendar",
+      title: "Calendar",
+      type: "item",
+      url: "/dashboard/calendar",
+      icon: icons.CalendarMonthOutlinedIcon,
+      breadcrumbs: false,
+    },
+    {
+      id: "kanban",
+      title: "Kanban",
+      type: "item",
+      url: "/dashboard/kanban",
+      icon: icons.ViewKanbanOutlinedIcon,
       breadcrumbs: false,
     },
     {
