@@ -16,11 +16,8 @@ const CalendarComponent = () => {
         onChange={(e) => setDates(e.value)}
         selectionMode="range"
         showIcon
-        style={{ width: "100%", position: 'fixed', left: '500px' }}
+        style={{ width: "100%", position: "fixed", left: "500px" }}
       />
-      <div>
-        
-      </div>
     </div>
   );
 };
