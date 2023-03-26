@@ -9,14 +9,11 @@ import {
   Collapse,
   IconButton,
   Card,
+  Chip,
   Divider,
   Fab,
 } from "@mui/material";
 
-import { styled } from "@mui/material/styles";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ForwardToInboxOutlinedIcon from "@mui/icons-material/ForwardToInboxOutlined";
-import SendAndArchiveOutlinedIcon from "@mui/icons-material/SendAndArchiveOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 //db
@@ -31,6 +28,7 @@ import {
   where,
 } from "firebase/firestore";
 import { db } from "../../Firebase";
+
 import Texture from "assets/background/large-triangles.svg";
 
 const uID = sessionStorage.getItem("uID Token");
@@ -56,9 +54,7 @@ export default function AllJobs() {
   return snapshot.docs.map((docSnapshot) => {
     const data = docSnapshot.data();
     console.log(data.id);
-    // const jobClickHandler = () => {
-    //   navigate(`jobs/:${data.id}`);
-    // };
+
     return (
       <Card
         key={data.id}
@@ -68,20 +64,29 @@ export default function AllJobs() {
           boxShadow: 5,
           borderRadius: 5,
           p: 2,
-          m: 4,
-          width: "100%",
+          m: 2,
+          width: "40%",
         }}
         style={{
           backgroundImage: `url(${Texture})`,
-          backgroundOpacity: "0.3",
+          backgroundOpacity: "0.7",
         }}
       >
         <CardActionArea>
-          <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+            }}
+          >
             <Typography variant="h1" my={1}>
               {data.jobTitle}
             </Typography>
-            <CardActions>
+
+            <CardActions
+              sx={{ display: "flex", justifyContent: "space-between" }}
+            >
               <IconButton
                 onClick={() => setLike(data.id)}
                 sx={{
@@ -93,7 +98,23 @@ export default function AllJobs() {
               </IconButton>
             </CardActions>
           </Box>
-          <Divider />
+          <Divider variant="middle" />
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              // flexDirection: "column",
+              flexWrap: "wrap",
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              py: 2,
+            }}
+          >
+            <Chip label={`Date: ${data.jobDate}`}></Chip>
+            <Chip label={`Time: ${data.jobTime}`}></Chip>
+            <Chip label={`Pay Rate: $${data.payRate}/hr`}></Chip>
+          </Box>
+          <Divider variant="middle" />
           <Box
             sx={{
               display: "flex",
@@ -106,23 +127,6 @@ export default function AllJobs() {
               sx={{
                 width: "100%",
                 display: "flex",
-                justifyContent: "stretch",
-                flexDirection: "column",
-                p: 2,
-                my: 2,
-                mr: 1,
-                borderRadius: 3,
-              }}
-            >
-              <Typography>Job Date: {data.jobDate}</Typography>
-              <Typography>Job Time: {data.jobTime}</Typography>
-              <Typography>Job Type: {data.jobType}</Typography>
-              <Typography>Pay Rate: {data.payRate}</Typography>
-            </Card>
-            <Card
-              sx={{
-                width: "100%",
-                display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 p: 2,
@@ -131,65 +135,15 @@ export default function AllJobs() {
                 borderRadius: 2,
               }}
             >
-              <Typography variant="h5">
+              <Typography variant="h4">
                 Office Name: {data.officeName}
               </Typography>
               <Typography>Office Address: {data.officeAddress}</Typography>
-            </Card>
-          </Box>
-
-          <Box>
-            <Card
-              sx={{
-                color: "white",
-                bgcolor: "black",
-                borderRadius: 3,
-                p: 1,
-
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-                width: "auto",
-              }}
-              variant="outline"
-            >
-              <Box
-                sx={{
-                  m: 1,
-                }}
-              >
-                <CardActions>
-                  <Fab
-                    color="primary"
-                    sx={{
-                      p: 2,
-                      mr: 1,
-                      fontSize: 20,
-                      borderRadius: 3,
-                      width: "100%",
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-evenly",
-                    }}
-                  >
-                    Apply
-                    <SendAndArchiveOutlinedIcon
-                      sx={{
-                        // justifyContent: "stretch",
-                        display: "flex",
-                        ml: 2,
-                      }}
-                    />
-                  </Fab>
-                </CardActions>
-              </Box>
-              <Card sx={{ width: "100%", p: 1, ml: 1 }}>
-                {/* <Typography>Job Contact</Typography> */}
-                <Typography>Name: {data.contactName}</Typography>
-                <Typography>Number: {data.contactNumber}</Typography>
-                <Typography>Email: {data.contactEmail}</Typography>
-              </Card>
+              <Typography variant="h5">
+                Posted By: {data.contactName}
+              </Typography>
+              <Typography> {data.contactNumber}</Typography>
+              <Typography>{data.contactEmail}</Typography>
             </Card>
           </Box>
         </CardActionArea>

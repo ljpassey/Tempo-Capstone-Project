@@ -28,8 +28,8 @@ const Jobs = () => {
     <Grid>
       <Stack
         direction="column"
-        justifyContent="stretch"
-        alignItems="stretch"
+        // justifyContent="stretch"
+        // alignItems="stretch"
         spacing={2}
       >
         <Box
