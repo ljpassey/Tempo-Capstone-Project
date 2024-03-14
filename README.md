@@ -3,6 +3,9 @@
 ## Description
 Tempo is a full-stack web application that conveniently and intuitively connects Dental Hygienists that are looking for temporary work with Dental Offices in need of temporary Hygienists. Tempo eliminates a major pain-point for both Dental Hygieniests and Offices, and simplifies the process for all users.
 
+## Link to YouTube Demonstration
+https://www.youtube.com/watch?v=ML1jiIpbPNY
+
 ## MVP
 - [ ] Dental Hygieniests can sign-up/login securely
 - [ ] Dental Offices can sign-up/login securely
